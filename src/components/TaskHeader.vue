@@ -68,6 +68,7 @@ export default {
 
 .task-counter {
   display: flex;
+  padding: 0 2rem;
 
   &__active,
   &__outdated,
