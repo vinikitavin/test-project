@@ -1,11 +1,13 @@
 <template>
   <div id="app">
+    <RouterView/>
   </div>
 </template>
 
 <script>
+import TaskHeader from "@/components/TaskHeader";
 export default {
-  components: {}
+  components: {TaskHeader}
 }
 </script>
 
