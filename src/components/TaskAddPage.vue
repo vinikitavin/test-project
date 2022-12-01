@@ -1,10 +1,10 @@
 <template>
-<h1>List</h1>
+<h1>Add</h1>
 </template>
 
 <script>
 export default {
-  name: "TaskListPage"
+  name: "TaskAddPage"
 }
 </script>
 

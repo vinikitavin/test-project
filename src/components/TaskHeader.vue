@@ -1,11 +1,11 @@
 <template>
   <nav class="blue darken-3">
     <div class="nav-wrapper">
-      <router-link to="/" class="brand-logo">Мои задачи</router-link>
+      <router-link to="/list" class="brand-logo">Мои задачи</router-link>
       <ul class="right hide-on-med-and-down">
         <router-link
             tag="li"
-            to="/"
+            to="/create"
             exact
             active-class="active"
         >

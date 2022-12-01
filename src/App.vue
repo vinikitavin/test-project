@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <TaskHeader/>
     <RouterView/>
   </div>
 </template>
