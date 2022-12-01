@@ -70,11 +70,6 @@ export default {
       })
     }
   },
-  methods: {
-    openCheckboxes() {
-      this.display = 'block'
-    }
-  },
   mounted() {
     M.FormSelect.init(this.$refs.select)
     if (this.$route.path === '/list') {

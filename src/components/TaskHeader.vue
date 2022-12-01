@@ -24,16 +24,16 @@
     </nav>
     <div v-if="this.$store.state.isTaskList" class="task-counter">
       <div class="task-counter__active">
-        <p class="task-counter__quantity">Активные</p>
-        <div>{{ activeCount }}</div>
+        <p class="task-counter__quantity">Активные:</p>
+        <div>{{ activeCount }};</div>
       </div>
       <div class="task-counter__outdated">
-        <p class="task-counter__quantity">Просроченные</p>
-        <div >{{ outdatedCount }}</div>
+        <p class="task-counter__quantity">Просроченные:</p>
+        <div>{{ outdatedCount }};</div>
       </div>
       <div class="task-counter__completed">
-        <p class="task-counter__quantity">Выполненные</p>
-        <div>{{ completedCount }}</div>
+        <p class="task-counter__quantity">Выполненные:</p>
+        <div>{{ completedCount }};</div>
       </div>
     </div>
   </div>

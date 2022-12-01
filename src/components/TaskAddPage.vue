@@ -4,20 +4,20 @@
       <h1>Создать задачу</h1>
       <form @submit.prevent="submitHandler">
         <div class="input-field">
-          <input id="title" v-model="title" type="text" class="validate" required>
+          <input id="title" v-model="title" class="validate" required type="text">
           <label for="title">Title</label>
           <span class="helper-text" data-error="Title is required"></span>
         </div>
 
-        <div class="chips" ref="chips"></div>
+        <div ref="chips" class="chips"></div>
 
         <div class="input-field">
-          <textarea v-model="description" id="description" class="materialize-textarea"></textarea>
+          <textarea id="description" v-model="description" class="materialize-textarea"></textarea>
           <label for="description">Description</label>
-          <span class="character-counter" style="float: right; font-size: 12px;">{{description.length}}/2048</span>
+          <span class="character-counter" style="float: right; font-size: 12px;">{{ description.length }}/2048</span>
         </div>
 
-        <input type="text" ref="datepicker">
+        <input ref="datepicker" type="text">
 
         <button class="btn" type="submit">Создать задачу</button>
       </form>

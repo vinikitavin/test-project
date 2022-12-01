@@ -1,22 +1,23 @@
 <template>
   <div class="row">
     <div v-if="task" class="col s6 offset-s3">
-      <h1>{{task.title}}</h1>
+      <h1>{{ task.title }}</h1>
 
       <form @submit.prevent="submitHandler">
 
-        <div class="chips" ref="chips"></div>
+        <div ref="chips" class="chips"></div>
 
         <div class="input-field">
-          <textarea style="min-height: 150px" v-model="description" id="description" class="materialize-textarea"></textarea>
+          <textarea id="description" v-model="description" class="materialize-textarea"
+                    style="min-height: 150px"></textarea>
           <label for="description">Description</label>
-          <span class="character-counter" style="float: right; font-size: 12px;">{{description.length}}/2048</span>
+          <span class="character-counter" style="float: right; font-size: 12px;">{{ description.length }}/2048</span>
         </div>
 
-        <input type="text" ref="datepicker">
+        <input ref="datepicker" type="text">
 
         <div v-if="task.status !== 'completed'">
-          <button class="btn" type="submit" style="margin-right: 1rem;">Update</button>
+          <button class="btn" style="margin-right: 1rem;" type="submit">Update</button>
           <button class="btn blue" type="button" @click="completeTask">Complete task</button>
         </div>
       </form>
