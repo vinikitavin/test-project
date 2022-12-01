@@ -1,35 +1,62 @@
 <template>
-  <nav class="blue darken-3">
-    <div class="nav-wrapper">
-      <router-link to="/list" class="brand-logo">Мои задачи</router-link>
-      <ul class="right hide-on-med-and-down">
-        <router-link
-            tag="li"
-            to="/create"
-            exact
-            active-class="active"
-        >
-          <a href="#">Добавить задачу</a>
-        </router-link>
-        <router-link
-            tag="li"
-            to="/list"
-            active-class="active"
-        >
-          <a href="#">Список задач</a>
-        </router-link>
-      </ul>
+  <div class="task-header">
+    <nav class="blue darken-3">
+      <div class="nav-wrapper">
+        <router-link class="brand-logo" to="/list">Мои задачи</router-link>
+        <ul class="right hide-on-med-and-down">
+          <router-link
+              active-class="active"
+              exact
+              tag="li"
+              to="/create"
+          >
+            <a href="#">Добавить задачу</a>
+          </router-link>
+          <router-link
+              active-class="active"
+              tag="li"
+              to="/list"
+          >
+            <a href="#">Список задач</a>
+          </router-link>
+        </ul>
+      </div>
+    </nav>
+    <div v-if="this.$store.state.isTaskList" class="task-counter">
+      <div class="task-counter__active">
+        <p class="task-counter__quantity">Активные</p>
+        <div>{{ activeCount }}</div>
+      </div>
+      <div class="task-counter__outdated">
+        <p class="task-counter__quantity">Просроченные</p>
+        <div >{{ outdatedCount }}</div>
+      </div>
+      <div class="task-counter__completed">
+        <p class="task-counter__quantity">Выполненные</p>
+        <div>{{ completedCount }}</div>
+      </div>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "TaskHeader"
+  name: "TaskHeader",
+  computed: {
+    activeCount() {
+      return this.$store.state.tasks.filter(task => task.status === 'active').length
+    },
+    outdatedCount() {
+      return this.$store.state.tasks.filter(task => task.status === 'outdated').length
+    },
+    completedCount() {
+      return this.$store.state.tasks.filter(task => task.status === 'completed').length
+    }
+  }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .nav-wrapper {
   background: grey;
   padding: 0 2rem;
@@ -37,5 +64,21 @@ export default {
 
 .brand-logo {
   color: black;
+}
+
+.task-counter {
+  display: flex;
+
+  &__active,
+  &__outdated,
+  &__completed {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+
+  &__quantity {
+    margin-right: 5px;
+  }
 }
 </style>
